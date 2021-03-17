@@ -12,4 +12,9 @@ GitCommander is right now a tool I use to open up PR's from repos and auto-check
 * Git Commander depends on [github cli](https://github.com/cli/cli) to handle its PR checkout functionality and also interacting with Github. There are some plans to add more support to work with other git hosting sites like bitbucket and gitlab. But, as of right now, its just github. Gotta start somewhere :)
 
 ## Releases
-You will need to clone this repo and build it yourself. Luckily its just `git clone` and `dotnet run` to get everything working. Hopefully, this will change at some point in the future.
+You will need to clone this repo and build it yourself. Hopefully, this will change at some point in the future.
+
+### Current Steps
+* `git clone git@github.com:JamesLoyd/gitcommander.git`
+* `cd gitcommander`
+* `dotnet run` 
