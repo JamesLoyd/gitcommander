@@ -1,3 +1,4 @@
+![.NET Core](https://github.com/jamesloyd/gitcommander/workflows/.NET/badge.svg?branch=mainline)
 ![GitHub](https://img.shields.io/github/license/jamesloyd/gitcommander)
 
 # GitCommander - A terminal user interface for git
