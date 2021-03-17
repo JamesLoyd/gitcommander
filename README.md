@@ -1,6 +1,5 @@
 ![.NET Core](https://github.com/jamesloyd/gitcommander/workflows/.NET/badge.svg?branch=mainline)
-![GitHub](https://img.shields.io/github/license/jamesloyd/gitcommander)
-
+[![License](https://img.shields.io/github/license/jamesloyd/gitcommander.svg)](LICENSE)
 # GitCommander - A terminal user interface for git
 
 GitCommander is right now a tool I use to open up PR's from repos and auto-check them out, so I can review the pull requests. I decided to open source it, cause why not.
