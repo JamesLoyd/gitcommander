@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 
-namespace PRCommander
+namespace GitCommander
 {
     public class ScriptRunner
     {

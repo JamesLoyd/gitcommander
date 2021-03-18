@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using Terminal.Gui;
-using PRCommander.Models;
+using GitCommander.Models;
 
-namespace PRCommander
+namespace GitCommander
 {
     public class Program
     {

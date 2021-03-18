@@ -1,4 +1,4 @@
-namespace PRCommander.Models
+namespace GitCommander.Models
 {
     public class PRResult
     {
