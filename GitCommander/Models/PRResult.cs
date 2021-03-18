@@ -8,4 +8,10 @@ namespace GitCommander.Models
         public string Branch {get;set;}
         public string Status {get;set;}
     }
+
+    public class Config
+    {
+        public string Repo {get;set;}
+        public string Location {get;set;}
+    }
 }
