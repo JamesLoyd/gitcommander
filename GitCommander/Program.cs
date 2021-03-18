@@ -14,7 +14,7 @@ namespace GitCommander
 
             Application.Init();
             var top = Application.Top;
-            var window = new Window("PR Commander")
+            var window = new Window("Git Commander")
             {
                 X = 0,
                 Y = 1, //leaves one row for the toplevel menu
@@ -89,7 +89,7 @@ namespace GitCommander
                 ColorScheme = ColorScheme
             };
 
-            var endButton = new Button("Exit PR Commander")
+            var endButton = new Button("Exit Git Commander")
             {
                 X = Pos.Left(text),
                 Y = Pos.Top(text) + 1,
