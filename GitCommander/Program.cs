@@ -7,14 +7,14 @@ using GitCommander.Models;
 
 namespace GitCommander
 {
-    public class Program
+      public class Program
     {
         public static void Main(string[] args)
         {
 
             Application.Init();
             var top = Application.Top;
-            var window = new Window("Git Commander")
+            var window = new Window("PR Commander")
             {
                 X = 0,
                 Y = 1, //leaves one row for the toplevel menu
@@ -24,7 +24,21 @@ namespace GitCommander
 
             var menu = GetMenu(window);
 
-            var promptLabel = new Label("Search for open PRs?");
+            var configFile = System.IO.File.ReadAllText("config.json");
+            var config = Newtonsoft.Json.JsonConvert.DeserializeObject<Config>(configFile);
+
+            var repoLabel = new Label($"Current Repo: {config.Repo} | Location: {config.Location}");
+            var divider = new Label("-----------------------------------------------------------")
+            {
+                X = Pos.Left(repoLabel),
+                Y = Pos.Top(repoLabel) + 1,
+            };
+            var promptLabel = new Label("Search for open PRs?")
+            {
+                X = Pos.Left(divider),
+                Y = Pos.Top(divider) + 1,
+            };
+
             var button = new Button("Confirm")
             {
                 X = Pos.Left(promptLabel),
@@ -75,7 +89,7 @@ namespace GitCommander
                 ColorScheme = ColorScheme
             };
 
-            var endButton = new Button("Exit Git Commander")
+            var endButton = new Button("Exit PR Commander")
             {
                 X = Pos.Left(text),
                 Y = Pos.Top(text) + 1,
@@ -93,7 +107,7 @@ namespace GitCommander
                     var testRun = new ScriptModel
                     {
                         Arguments = "gh pr checkout " + argValue.Split(':')[1].TrimStart().TrimEnd(),
-                        StartingDirectory = "/home/james/repos/ATGV4",
+                        StartingDirectory = config.Location,
                         IsShellCommand = true
                     };
 
@@ -111,7 +125,9 @@ namespace GitCommander
 
                 var script = new ScriptModel
                 {
-                    Arguments = "test.ps1"
+                    Arguments = $"Set-Location {config.Location}; gh pr list;",
+                    StartingDirectory = config.Location,
+                    IsShellCommand = true
                 };
 
                 var output = new ScriptRunner().Run(script);
@@ -121,14 +137,14 @@ namespace GitCommander
                     Index = y,
                     Result = x,
                     PRNumber = new string(x.TakeWhile(z => char.IsDigit(z)).ToArray()),
-                    Branch = x.Replace("	", "|").Split('|')[2],
-                    Status = x.Replace("	", "|").Split('|')[3]
+                    Branch = x.Replace("        ", "|").Split('|')[2],
+                    Status = x.Replace("        ", "|").Split('|')[3]
                 });
 
 
 
                 var options = test1.Select(ty => $"PR #: {new string(ty.Result.TakeWhile(x => char.IsDigit(x)).ToArray())} ::: Branch {ty.Branch} => Status: {ty.Status}");
-
+                button.Text = "Refresh";
                 listView.SetSource(options.ToList());
             };
 
@@ -139,7 +155,7 @@ namespace GitCommander
                 Application.RequestStop();
             };
 
-            window.Add(promptLabel, button, listViewLabel, listView, resultFromOpenPrLabel, text, endButton);
+            window.Add(repoLabel, divider, promptLabel, button, listViewLabel, listView, resultFromOpenPrLabel, text, endButton);
 
             top.Add(menu);
             top.Add(window);
