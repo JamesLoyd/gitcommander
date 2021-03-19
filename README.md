@@ -14,4 +14,5 @@ GitCommander is right now a tool I use to open up PR's from repos and auto-check
 ## How to build
 * `git clone git@github.com:JamesLoyd/gitcommander.git`
 * `cd gitcommander`
+* `cd GitCommander`
 * `dotnet run` 
