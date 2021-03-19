@@ -161,12 +161,7 @@ namespace GitCommander
             top.Add(window);
 
             Application.UseSystemConsole = true;
-            Application.Driver.Init(() => {});
             Application.Run(top);
-            Application.Driver.UpdateScreen();
-            Application.Driver.End();
-            Application.MainLoop.Stop();
-            System.Threading.Thread.Sleep(3000);
             Application.Shutdown();
 
 
