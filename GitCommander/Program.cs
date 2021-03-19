@@ -14,7 +14,7 @@ namespace GitCommander
 
             Application.Init();
             var top = Application.Top;
-            var window = new Window("PR Commander")
+            var window = new Window("Git Commander")
             {
                 X = 0,
                 Y = 1, //leaves one row for the toplevel menu
@@ -89,7 +89,7 @@ namespace GitCommander
                 ColorScheme = ColorScheme
             };
 
-            var endButton = new Button("Exit PR Commander")
+            var endButton = new Button("Exit Git Commander")
             {
                 X = Pos.Left(text),
                 Y = Pos.Top(text) + 1,
@@ -137,8 +137,8 @@ namespace GitCommander
                     Index = y,
                     Result = x,
                     PRNumber = new string(x.TakeWhile(z => char.IsDigit(z)).ToArray()),
-                    Branch = x.Replace("        ", "|").Split('|')[2],
-                    Status = x.Replace("        ", "|").Split('|')[3]
+                    Branch = x.Split('\t')[2],
+                    Status = x.Split('\t')[3]
                 });
 
 
@@ -160,9 +160,10 @@ namespace GitCommander
             top.Add(menu);
             top.Add(window);
 
-
-            Application.Run();
+            Application.UseSystemConsole = true;
+            Application.Run(top);
             Application.Shutdown();
+
 
 
             // Start the child process.
