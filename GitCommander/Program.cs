@@ -160,9 +160,15 @@ namespace GitCommander
             top.Add(menu);
             top.Add(window);
 
-
-            Application.Run();
+            Application.UseSystemConsole = true;
+            Application.Driver.Init(() => {});
+            Application.Run(top);
+            Application.Driver.UpdateScreen();
+            Application.Driver.End();
+            Application.MainLoop.Stop();
+            System.Threading.Thread.Sleep(3000);
             Application.Shutdown();
+
 
 
             // Start the child process.
