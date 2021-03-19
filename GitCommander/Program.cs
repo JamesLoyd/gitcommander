@@ -131,16 +131,14 @@ namespace GitCommander
                 };
 
                 var output = new ScriptRunner().Run(script);
-                string test(string test) {
-                    return Regex.Replace(test, @"\s+", "|");
-                }
+
                 var test1 = output.Trim(new char[] { '\uFEFF' }).Split('\n').SkipLast(1).Select((x, y) => new PRResult
                 {
                     Index = y,
                     Result = x,
                     PRNumber = new string(x.TakeWhile(z => char.IsDigit(z)).ToArray()),
-                    Branch = test(x),
-                    Status = test(x).Split('|')[0]
+                    Branch = x.Split('\t')[2],
+                    Status = x.Split('\t')[3]
                 });
 
 
