@@ -1,0 +1,12 @@
+﻿{
+  "repos": [
+    {
+      "name": "vnext-backend",
+      "location": "atgfr8"
+    },
+    {
+      "name": "v4-ui",
+      "location": "atgfr8"
+    }
+  ]
+}

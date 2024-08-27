@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace GitCommander.Models
 {
     public class PRResult
@@ -11,7 +13,12 @@ namespace GitCommander.Models
 
     public class Config
     {
-        public string Repo {get;set;}
+        public List<Repo> Repos {get;set;} = new List<Repo>();
+    }
+
+    public class Repo
+    {
+        public string Name {get;set;}
         public string Location {get;set;}
     }
 }
