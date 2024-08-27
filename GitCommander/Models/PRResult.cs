@@ -10,15 +10,4 @@ namespace GitCommander.Models
         public string Branch {get;set;}
         public string Status {get;set;}
     }
-
-    public class Config
-    {
-        public List<Repo> Repos {get;set;} = new List<Repo>();
-    }
-
-    public class Repo
-    {
-        public string Name {get;set;}
-        public string Location {get;set;}
-    }
 }
