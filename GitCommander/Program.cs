@@ -13,6 +13,7 @@ namespace GitCommander
             try
             {
                 Application.Run(new MyView());
+
             }
             finally
             {

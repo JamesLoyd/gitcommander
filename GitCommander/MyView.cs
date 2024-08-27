@@ -7,14 +7,23 @@
 //      You can make changes to this file and they will not be overwritten when saving.
 //  </auto-generated>
 // -----------------------------------------------------------------------------
+
+using GitCommander.Models;
+using Tomlyn;
+
 namespace GitCommander {
     using Terminal.Gui;
-    
-    
+
+
     public partial class MyView {
-        
-        public MyView() {
+
+        public MyView()
+        {
+            var tomlText = File.ReadAllText("Config.toml");
+            var config = Toml.ToModel<Config>(tomlText);
             InitializeComponent();
+            var repos = config.Repos;
+            repoList.SetSource(repos.Select(x => x.Name).ToList());
         }
     }
 }

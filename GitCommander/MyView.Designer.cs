@@ -101,7 +101,7 @@ namespace GitCommander {
             this.prListScV.Add(this.prList);
             this.label2.Width = 3;
             this.label2.Height = 1;
-            this.label2.X = 63;
+            this.label2.X = Pos.Right(prListScV) + 5;
             this.label2.Y = 1;
             this.label2.Visible = true;
             this.label2.Data = "label2";
@@ -110,8 +110,8 @@ namespace GitCommander {
             this.Add(this.label2);
             this.repoList.Width = 20;
             this.repoList.Height = 3;
-            this.repoList.X = 63;
-            this.repoList.Y = 3;
+            this.repoList.X = Pos.Right(prListScV) + 5;
+            this.repoList.Y = Pos.Bottom(label2) + 1;
             this.repoList.Visible = true;
             this.repoList.Data = "repoList";
             this.repoList.TextAlignment = Terminal.Gui.TextAlignment.Left;
@@ -120,7 +120,7 @@ namespace GitCommander {
                         "Item2",
                         "Item3"});
             this.repoList.AllowsMarking = false;
-            this.repoList.AllowsMultipleSelection = true;
+            this.repoList.AllowsMultipleSelection = false;
             this.Add(this.repoList);
             this.fetchPrBtn.Width = 21;
             this.fetchPrBtn.Height = 1;
