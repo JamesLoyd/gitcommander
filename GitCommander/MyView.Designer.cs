@@ -19,25 +19,25 @@ namespace GitCommander {
         
         private Terminal.Gui.View view;
         
-        private Terminal.Gui.ScrollView scrollView;
+        private Terminal.Gui.ScrollView prListScV;
         
-        private Terminal.Gui.Label label;
+        private Terminal.Gui.Label repoLbl;
         
-        private Terminal.Gui.ListView listView;
+        private Terminal.Gui.ListView prList;
         
         private Terminal.Gui.Label label2;
         
-        private Terminal.Gui.ListView listView2;
+        private Terminal.Gui.ListView repoList;
         
-        private Terminal.Gui.Button button;
+        private Terminal.Gui.Button fetchPrBtn;
         
         private void InitializeComponent() {
-            this.button = new Terminal.Gui.Button();
-            this.listView2 = new Terminal.Gui.ListView();
+            this.fetchPrBtn = new Terminal.Gui.Button();
+            this.repoList = new Terminal.Gui.ListView();
             this.label2 = new Terminal.Gui.Label();
-            this.listView = new Terminal.Gui.ListView();
-            this.label = new Terminal.Gui.Label();
-            this.scrollView = new Terminal.Gui.ScrollView();
+            this.prList = new Terminal.Gui.ListView();
+            this.repoLbl = new Terminal.Gui.Label();
+            this.prListScV = new Terminal.Gui.ScrollView();
             this.view = new Terminal.Gui.View();
             this.greenOnBlack = new Terminal.Gui.ColorScheme();
             this.greenOnBlack.Normal = new Terminal.Gui.Attribute(Terminal.Gui.Color.Green, Terminal.Gui.Color.Black);
@@ -67,38 +67,38 @@ namespace GitCommander {
             this.view.Data = "view";
             this.view.TextAlignment = Terminal.Gui.TextAlignment.Left;
             this.Add(this.view);
-            this.scrollView.Width = Dim.Percent(50f);
-            this.scrollView.Height = Dim.Percent(50f);
-            this.scrollView.X = 0;
-            this.scrollView.Y = 0;
-            this.scrollView.Visible = true;
-            this.scrollView.ContentSize = new Size(20,10);
-            this.scrollView.Data = "scrollView";
-            this.scrollView.TextAlignment = Terminal.Gui.TextAlignment.Left;
-            this.Add(this.scrollView);
-            this.label.Width = 4;
-            this.label.Height = 1;
-            this.label.X = 0;
-            this.label.Y = 0;
-            this.label.Visible = true;
-            this.label.Data = "label";
-            this.label.Text = "Repository";
-            this.label.TextAlignment = Terminal.Gui.TextAlignment.Left;
-            this.scrollView.Add(this.label);
-            this.listView.Width = 20;
-            this.listView.Height = 3;
-            this.listView.X = 1;
-            this.listView.Y = 1;
-            this.listView.Visible = true;
-            this.listView.Data = "listView";
-            this.listView.TextAlignment = Terminal.Gui.TextAlignment.Left;
-            this.listView.Source = new Terminal.Gui.ListWrapper(new string[] {
+            this.prListScV.Width = Dim.Percent(50f);
+            this.prListScV.Height = Dim.Percent(50f);
+            this.prListScV.X = 0;
+            this.prListScV.Y = 0;
+            this.prListScV.Visible = true;
+            this.prListScV.ContentSize = new Size(20,10);
+            this.prListScV.Data = "prListScV";
+            this.prListScV.TextAlignment = Terminal.Gui.TextAlignment.Left;
+            this.Add(this.prListScV);
+            this.repoLbl.Width = 4;
+            this.repoLbl.Height = 1;
+            this.repoLbl.X = 0;
+            this.repoLbl.Y = 0;
+            this.repoLbl.Visible = true;
+            this.repoLbl.Data = "repoLbl";
+            this.repoLbl.Text = "Repository";
+            this.repoLbl.TextAlignment = Terminal.Gui.TextAlignment.Left;
+            this.prListScV.Add(this.repoLbl);
+            this.prList.Width = 20;
+            this.prList.Height = 3;
+            this.prList.X = 1;
+            this.prList.Y = 1;
+            this.prList.Visible = true;
+            this.prList.Data = "prList";
+            this.prList.TextAlignment = Terminal.Gui.TextAlignment.Left;
+            this.prList.Source = new Terminal.Gui.ListWrapper(new string[] {
                         "Item1",
                         "Item2",
                         "Item3"});
-            this.listView.AllowsMarking = false;
-            this.listView.AllowsMultipleSelection = true;
-            this.scrollView.Add(this.listView);
+            this.prList.AllowsMarking = false;
+            this.prList.AllowsMultipleSelection = true;
+            this.prListScV.Add(this.prList);
             this.label2.Width = 3;
             this.label2.Height = 1;
             this.label2.X = 63;
@@ -108,30 +108,30 @@ namespace GitCommander {
             this.label2.Text = "List of Repositories watching";
             this.label2.TextAlignment = Terminal.Gui.TextAlignment.Left;
             this.Add(this.label2);
-            this.listView2.Width = 20;
-            this.listView2.Height = 3;
-            this.listView2.X = 63;
-            this.listView2.Y = 3;
-            this.listView2.Visible = true;
-            this.listView2.Data = "listView2";
-            this.listView2.TextAlignment = Terminal.Gui.TextAlignment.Left;
-            this.listView2.Source = new Terminal.Gui.ListWrapper(new string[] {
+            this.repoList.Width = 20;
+            this.repoList.Height = 3;
+            this.repoList.X = 63;
+            this.repoList.Y = 3;
+            this.repoList.Visible = true;
+            this.repoList.Data = "repoList";
+            this.repoList.TextAlignment = Terminal.Gui.TextAlignment.Left;
+            this.repoList.Source = new Terminal.Gui.ListWrapper(new string[] {
                         "Item1",
                         "Item2",
                         "Item3"});
-            this.listView2.AllowsMarking = false;
-            this.listView2.AllowsMultipleSelection = true;
-            this.Add(this.listView2);
-            this.button.Width = 21;
-            this.button.Height = 1;
-            this.button.X = 63;
-            this.button.Y = 27;
-            this.button.Visible = true;
-            this.button.Data = "button";
-            this.button.Text = "Fetch List of PRs";
-            this.button.TextAlignment = Terminal.Gui.TextAlignment.Centered;
-            this.button.IsDefault = false;
-            this.Add(this.button);
+            this.repoList.AllowsMarking = false;
+            this.repoList.AllowsMultipleSelection = true;
+            this.Add(this.repoList);
+            this.fetchPrBtn.Width = 21;
+            this.fetchPrBtn.Height = 1;
+            this.fetchPrBtn.X = 63;
+            this.fetchPrBtn.Y = 27;
+            this.fetchPrBtn.Visible = true;
+            this.fetchPrBtn.Data = "fetchPrBtn";
+            this.fetchPrBtn.Text = "Fetch List of PRs";
+            this.fetchPrBtn.TextAlignment = Terminal.Gui.TextAlignment.Centered;
+            this.fetchPrBtn.IsDefault = false;
+            this.Add(this.fetchPrBtn);
         }
     }
 }
