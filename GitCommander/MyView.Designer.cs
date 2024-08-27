@@ -21,13 +21,22 @@ namespace GitCommander {
         
         private Terminal.Gui.ScrollView scrollView;
         
+        private Terminal.Gui.Label label;
+        
         private Terminal.Gui.ListView listView;
+        
+        private Terminal.Gui.Label label2;
+        
+        private Terminal.Gui.ListView listView2;
         
         private Terminal.Gui.Button button;
         
         private void InitializeComponent() {
             this.button = new Terminal.Gui.Button();
+            this.listView2 = new Terminal.Gui.ListView();
+            this.label2 = new Terminal.Gui.Label();
             this.listView = new Terminal.Gui.ListView();
+            this.label = new Terminal.Gui.Label();
             this.scrollView = new Terminal.Gui.ScrollView();
             this.view = new Terminal.Gui.View();
             this.greenOnBlack = new Terminal.Gui.ColorScheme();
@@ -59,7 +68,7 @@ namespace GitCommander {
             this.view.TextAlignment = Terminal.Gui.TextAlignment.Left;
             this.Add(this.view);
             this.scrollView.Width = Dim.Percent(50f);
-            this.scrollView.Height = Dim.Percent(100f);
+            this.scrollView.Height = Dim.Percent(50f);
             this.scrollView.X = 0;
             this.scrollView.Y = 0;
             this.scrollView.Visible = true;
@@ -67,6 +76,15 @@ namespace GitCommander {
             this.scrollView.Data = "scrollView";
             this.scrollView.TextAlignment = Terminal.Gui.TextAlignment.Left;
             this.Add(this.scrollView);
+            this.label.Width = 4;
+            this.label.Height = 1;
+            this.label.X = 0;
+            this.label.Y = 0;
+            this.label.Visible = true;
+            this.label.Data = "label";
+            this.label.Text = "Repository";
+            this.label.TextAlignment = Terminal.Gui.TextAlignment.Left;
+            this.scrollView.Add(this.label);
             this.listView.Width = 20;
             this.listView.Height = 3;
             this.listView.X = 1;
@@ -81,6 +99,29 @@ namespace GitCommander {
             this.listView.AllowsMarking = false;
             this.listView.AllowsMultipleSelection = true;
             this.scrollView.Add(this.listView);
+            this.label2.Width = 3;
+            this.label2.Height = 1;
+            this.label2.X = 63;
+            this.label2.Y = 1;
+            this.label2.Visible = true;
+            this.label2.Data = "label2";
+            this.label2.Text = "List of Repositories watching";
+            this.label2.TextAlignment = Terminal.Gui.TextAlignment.Left;
+            this.Add(this.label2);
+            this.listView2.Width = 20;
+            this.listView2.Height = 3;
+            this.listView2.X = 63;
+            this.listView2.Y = 3;
+            this.listView2.Visible = true;
+            this.listView2.Data = "listView2";
+            this.listView2.TextAlignment = Terminal.Gui.TextAlignment.Left;
+            this.listView2.Source = new Terminal.Gui.ListWrapper(new string[] {
+                        "Item1",
+                        "Item2",
+                        "Item3"});
+            this.listView2.AllowsMarking = false;
+            this.listView2.AllowsMultipleSelection = true;
+            this.Add(this.listView2);
             this.button.Width = 21;
             this.button.Height = 1;
             this.button.X = 63;
