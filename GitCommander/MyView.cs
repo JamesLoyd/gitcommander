@@ -38,12 +38,6 @@ namespace GitCommander
                     github.PullRequest.GetAllForRepository(repo.User, repo.Name).Result.Select(x => $"{x.Title}  - {x.User.Login} -  {x.State}");
                 var v = new PrListView(infovi);
                 v.Height = Dim.Percent(50f);
-                var sv = new ScrollView();
-                sv.ContentSize = new Size(100, 100);
-                sv.Width = Dim.Percent(100f);
-                sv.Height = Dim.Percent(50f);
-                sv.Visible = true;
-                sv.Add(v);
                 scrollviews.Add(v);
             }
 
@@ -53,6 +47,10 @@ namespace GitCommander
                 {
                     Console.WriteLine(i);
                     scrollviews[i].Y = Pos.Bottom(scrollviews[i - 1]);
+                }
+                else
+                {
+                    scrollviews[i].Y = 0;
                 }
                 prListView.Add(scrollviews[i]);
             }
