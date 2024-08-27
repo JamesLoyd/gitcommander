@@ -9,14 +9,15 @@ namespace GitCommander
         {
 
             Application.Init();
-            var top = Application.Top;
-            var window = new Window("Git Commander")
+
+            try
             {
-                X = 0,
-                Y = 1, //leaves one row for the toplevel menu
-                Width = Dim.Fill(),
-                Height = Dim.Fill()
-            };
+                Application.Run(new MyView());
+            }
+            finally
+            {
+                Application.Shutdown();
+            }
 
             // var menu = GetMenu(window);
 
