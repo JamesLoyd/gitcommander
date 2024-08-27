@@ -20,8 +20,8 @@ namespace GitCommander
 
             // var menu = GetMenu(window);
 
-            var configFile = System.IO.File.ReadAllText("config.json");
-            var config = Newtonsoft.Json.JsonConvert.DeserializeObject<Config>(configFile);
+            // var configFile = System.IO.File.ReadAllText("config.json");
+            // var config = Newtonsoft.Json.JsonConvert.DeserializeObject<Config>(configFile);
 
             // var repoLabel = new Label($"Current Repo: {config.Repo} | Location: {config.Location}");
             // var divider = new Label("-----------------------------------------------------------")
